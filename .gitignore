@@ -1,0 +1,2 @@
+# ignore nodemodules from root also from nested folders
+node_modules/
