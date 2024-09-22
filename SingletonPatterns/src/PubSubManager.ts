@@ -46,7 +46,6 @@ export class PubSubManager {
         }
     }
 
-    // Define the method that will be called when a message is published to the subscribed channel
     private handleMessage(stock: string, message: string) {
         console.log(`Message received on channel ${stock}: ${message}`);
         this.subscriptions.get(stock)?.forEach((sub) => {
