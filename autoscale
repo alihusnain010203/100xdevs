@@ -1,0 +1,9 @@
+#!/bin/bash 
+export PATH=$PATH:/home/ubuntu/.nvm/versions/node/v22.0.0/bin/
+echo "hi there before"
+echo "hi there after"
+npm install -g pm2
+cd /home/ubuntu/week-22
+pm2 start index.js
+pm2 save
+pm2 startup
