@@ -1,12 +1,20 @@
-import {describe,expect,it }from "@jest/globals"
-import { sum } from ".."
+import { describe, expect, it } from "@jest/globals"
+import { app } from ".."
+import request from "supertest";
 
-describe("sum", () => {
-    it("it should return the sum of positive numbers", () => {
-        expect(sum(1, 2)).toBe(3)
-    }),
-    it("it should return the sum of negative numbers", ()=>{
-        expect(sum(-1, -2)).toBe(-3)
-    })
+describe("Test the Sum endpoint", () => {
+    it("should return 3 when passed 1 and 2", async () => {
+        const response = await request(app)
+            .post("/sum")
+            .send({
+                a: 1,
+                b: 2
+            });
+        expect(response.body.answer).toBe(3);
+        //  statusCode
+        expect(response.statusCode).toBe(200);
 
-})
+
+
+    });
+});
